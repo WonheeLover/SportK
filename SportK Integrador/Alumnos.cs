@@ -3,6 +3,7 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using SportK_Integrador;
 
 namespace SportK
 {
@@ -240,9 +241,10 @@ namespace SportK
         }
 
         // Botón para abrir la ventana donde se visualizan alumnos registrados
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_ViualizarRegistros(object sender, EventArgs e)
         {
-
+            AlumnosTabla VerAlumnosTabla = new AlumnosTabla();
+            VerAlumnosTabla.ShowDialog();
         }
 
         // Estos métodos vacíos son para evitar errores si algún evento está conectado en el diseñador pero no se usa.

@@ -33,7 +33,7 @@
             IntNumericEdad = new NumericUpDown();
             IntNumericNNS = new NumericUpDown();
             BtnGuardar = new Button();
-            button1 = new Button();
+            BtnVizualizarRegistros = new Button();
             contextMenuStrip1 = new ContextMenuStrip(components);
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             label1 = new Label();
@@ -227,16 +227,16 @@
             BtnGuardar.UseVisualStyleBackColor = true;
             BtnGuardar.Click += button2_Click;
             // 
-            // button1
+            // BtnVizualizarRegistros
             // 
-            button1.Location = new Point(888, 454);
-            button1.Margin = new Padding(3, 4, 3, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(162, 61);
-            button1.TabIndex = 21;
-            button1.Text = "Visualizar Registros";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            BtnVizualizarRegistros.Location = new Point(888, 454);
+            BtnVizualizarRegistros.Margin = new Padding(3, 4, 3, 4);
+            BtnVizualizarRegistros.Name = "BtnVizualizarRegistros";
+            BtnVizualizarRegistros.Size = new Size(162, 61);
+            BtnVizualizarRegistros.TabIndex = 21;
+            BtnVizualizarRegistros.Text = "Visualizar Registros";
+            BtnVizualizarRegistros.UseVisualStyleBackColor = true;
+            BtnVizualizarRegistros.Click += btn_ViualizarRegistros;
             // 
             // contextMenuStrip1
             // 
@@ -291,7 +291,7 @@
             Controls.Add(comboBox1);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(button1);
+            Controls.Add(BtnVizualizarRegistros);
             Controls.Add(BtnGuardar);
             Controls.Add(IntNumericNNS);
             Controls.Add(IntNumericEdad);
@@ -340,7 +340,7 @@
         private NumericUpDown IntNumericEdad;
         private NumericUpDown IntNumericNNS;
         private Button BtnGuardar;
-        private Button button1;
+        private Button BtnVizualizarRegistros;
         private ContextMenuStrip contextMenuStrip1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Label label1;
