@@ -243,8 +243,8 @@ namespace SportK
         // Botón para abrir la ventana donde se visualizan alumnos registrados
         private void btn_ViualizarRegistros(object sender, EventArgs e)
         {
-            AlumnosTabla VerAlumnosTabla = new AlumnosTabla();
-            VerAlumnosTabla.ShowDialog();
+            AlumnosTabla visualizarAlumnostabla = new AlumnosTabla();
+            visualizarAlumnostabla.ShowDialog(); // Abro la ventana de visualización
         }
 
         // Estos métodos vacíos son para evitar errores si algún evento está conectado en el diseñador pero no se usa.
