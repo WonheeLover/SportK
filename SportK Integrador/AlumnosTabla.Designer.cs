@@ -4,7 +4,7 @@
     {
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.DataGridView dataGridAlumnos;
-        private System.Windows.Forms.ComboBox comboGrupo;
+        private System.Windows.Forms.ComboBox ComboGrupo;
         private System.Windows.Forms.ComboBox comboDeporte;
         private System.Windows.Forms.Label labelGrupo;
         private System.Windows.Forms.Label labelDeporte;
@@ -19,108 +19,103 @@
 
         private void InitializeComponent()
         {
-            this.dataGridAlumnos = new System.Windows.Forms.DataGridView();
-            this.comboGrupo = new System.Windows.Forms.ComboBox();
-            this.comboDeporte = new System.Windows.Forms.ComboBox();
-            this.labelGrupo = new System.Windows.Forms.Label();
-            this.labelDeporte = new System.Windows.Forms.Label();
-            this.buttonEditar = new System.Windows.Forms.Button();
-            this.buttonGuardar = new System.Windows.Forms.Button();
-
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridAlumnos)).BeginInit();
-            this.SuspendLayout();
-
+            dataGridAlumnos = new DataGridView();
+            ComboGrupo = new ComboBox();
+            comboDeporte = new ComboBox();
+            labelGrupo = new Label();
+            labelDeporte = new Label();
+            buttonEditar = new Button();
+            buttonGuardar = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridAlumnos).BeginInit();
+            SuspendLayout();
             // 
             // dataGridAlumnos
             // 
-            this.dataGridAlumnos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                                            | System.Windows.Forms.AnchorStyles.Left)
-                                            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridAlumnos.Location = new System.Drawing.Point(12, 60);
-            this.dataGridAlumnos.Name = "dataGridAlumnos";
-            this.dataGridAlumnos.Size = new System.Drawing.Size(760, 320);
-            this.dataGridAlumnos.TabIndex = 0;
-
+            dataGridAlumnos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridAlumnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridAlumnos.Location = new Point(12, 68);
+            dataGridAlumnos.Name = "dataGridAlumnos";
+            dataGridAlumnos.RowHeadersWidth = 51;
+            dataGridAlumnos.Size = new Size(1038, 544);
+            dataGridAlumnos.TabIndex = 0;
             // 
-            // comboGrupo
+            // ComboGrupo
             // 
-            this.comboGrupo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboGrupo.FormattingEnabled = true;
-            this.comboGrupo.Location = new System.Drawing.Point(66, 20);
-            this.comboGrupo.Name = "comboGrupo";
-            this.comboGrupo.Size = new System.Drawing.Size(121, 23);
-            this.comboGrupo.TabIndex = 1;
-
+            ComboGrupo.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboGrupo.Font = new Font("Segoe UI", 10F);
+            ComboGrupo.FormattingEnabled = true;
+            ComboGrupo.Location = new Point(83, 22);
+            ComboGrupo.Name = "ComboGrupo";
+            ComboGrupo.Size = new Size(121, 31);
+            ComboGrupo.TabIndex = 1;
+            ComboGrupo.SelectedIndexChanged += comboGrupo_SelectedIndexChanged;
             // 
             // comboDeporte
             // 
-            this.comboDeporte.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboDeporte.FormattingEnabled = true;
-            this.comboDeporte.Location = new System.Drawing.Point(260, 20);
-            this.comboDeporte.Name = "comboDeporte";
-            this.comboDeporte.Size = new System.Drawing.Size(200, 23);
-            this.comboDeporte.TabIndex = 2;
-
+            comboDeporte.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboDeporte.Font = new Font("Segoe UI", 10F);
+            comboDeporte.FormattingEnabled = true;
+            comboDeporte.Location = new Point(316, 23);
+            comboDeporte.Name = "comboDeporte";
+            comboDeporte.Size = new Size(200, 31);
+            comboDeporte.TabIndex = 2;
             // 
             // labelGrupo
             // 
-            this.labelGrupo.AutoSize = true;
-            this.labelGrupo.Location = new System.Drawing.Point(12, 23);
-            this.labelGrupo.Name = "labelGrupo";
-            this.labelGrupo.Size = new System.Drawing.Size(43, 15);
-            this.labelGrupo.TabIndex = 3;
-            this.labelGrupo.Text = "Grupo:";
-
+            labelGrupo.AutoSize = true;
+            labelGrupo.Font = new Font("Segoe UI", 11F);
+            labelGrupo.Location = new Point(12, 23);
+            labelGrupo.Name = "labelGrupo";
+            labelGrupo.Size = new Size(69, 25);
+            labelGrupo.TabIndex = 3;
+            labelGrupo.Text = "Grupo:";
             // 
             // labelDeporte
             // 
-            this.labelDeporte.AutoSize = true;
-            this.labelDeporte.Location = new System.Drawing.Point(210, 23);
-            this.labelDeporte.Name = "labelDeporte";
-            this.labelDeporte.Size = new System.Drawing.Size(52, 15);
-            this.labelDeporte.TabIndex = 4;
-            this.labelDeporte.Text = "Deporte:";
-
+            labelDeporte.AutoSize = true;
+            labelDeporte.Font = new Font("Segoe UI", 11F);
+            labelDeporte.Location = new Point(226, 23);
+            labelDeporte.Name = "labelDeporte";
+            labelDeporte.Size = new Size(84, 25);
+            labelDeporte.TabIndex = 4;
+            labelDeporte.Text = "Deporte:";
             // 
             // buttonEditar
             // 
-            this.buttonEditar.Location = new System.Drawing.Point(12, 400);
-            this.buttonEditar.Name = "buttonEditar";
-            this.buttonEditar.Size = new System.Drawing.Size(100, 30);
-            this.buttonEditar.TabIndex = 5;
-            this.buttonEditar.Text = "Editar";
-            this.buttonEditar.UseVisualStyleBackColor = true;
-            this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
-
+            buttonEditar.Location = new Point(9, 618);
+            buttonEditar.Name = "buttonEditar";
+            buttonEditar.Size = new Size(109, 43);
+            buttonEditar.TabIndex = 5;
+            buttonEditar.Text = "Editar";
+            buttonEditar.UseVisualStyleBackColor = true;
+            buttonEditar.Click += buttonEditar_Click;
             // 
             // buttonGuardar
             // 
-            this.buttonGuardar.Location = new System.Drawing.Point(120, 400);
-            this.buttonGuardar.Name = "buttonGuardar";
-            this.buttonGuardar.Size = new System.Drawing.Size(120, 30);
-            this.buttonGuardar.TabIndex = 6;
-            this.buttonGuardar.Text = "Guardar Cambios";
-            this.buttonGuardar.UseVisualStyleBackColor = true;
-            this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
-
+            buttonGuardar.Location = new Point(138, 618);
+            buttonGuardar.Name = "buttonGuardar";
+            buttonGuardar.Size = new Size(109, 46);
+            buttonGuardar.TabIndex = 6;
+            buttonGuardar.Text = "Guardar";
+            buttonGuardar.UseVisualStyleBackColor = true;
+            buttonGuardar.Click += buttonGuardar_Click;
             // 
-            // VisualizarAlumnos
+            // AlumnosTabla
             // 
-            this.ClientSize = new System.Drawing.Size(784, 441);
-            this.Controls.Add(this.dataGridAlumnos);
-            this.Controls.Add(this.comboGrupo);
-            this.Controls.Add(this.comboDeporte);
-            this.Controls.Add(this.labelGrupo);
-            this.Controls.Add(this.labelDeporte);
-            this.Controls.Add(this.buttonEditar);
-            this.Controls.Add(this.buttonGuardar);
-            this.Name = "VisualizarAlumnos";
-            this.Text = "Visualizar Alumnos";
-
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridAlumnos)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            ClientSize = new Size(1062, 673);
+            Controls.Add(dataGridAlumnos);
+            Controls.Add(ComboGrupo);
+            Controls.Add(comboDeporte);
+            Controls.Add(labelGrupo);
+            Controls.Add(labelDeporte);
+            Controls.Add(buttonEditar);
+            Controls.Add(buttonGuardar);
+            Name = "AlumnosTabla";
+            Text = "Visualizar Alumnos";
+            Load += AlumnosTabla_Load_1;
+            ((System.ComponentModel.ISupportInitialize)dataGridAlumnos).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
     }
 }

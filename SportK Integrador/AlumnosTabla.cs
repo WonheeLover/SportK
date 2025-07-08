@@ -26,7 +26,7 @@ namespace SportK
             CargarDatos();    // Método para cargar alumnos con filtros
 
             // Eventos para recargar datos al cambiar filtros
-            comboGrupo.SelectedIndexChanged += Filtro_Changed;
+            ComboGrupo.SelectedIndexChanged += Filtro_Changed;
             comboDeporte.SelectedIndexChanged += Filtro_Changed;
 
             // Configuración inicial del DataGridView
@@ -39,8 +39,8 @@ namespace SportK
         // Método: llena comboGrupo con opciones fijas
         private void CargarGrupos()
         {
-            comboGrupo.Items.AddRange(new object[] { "Todos", "1", "2", "3" });
-            comboGrupo.SelectedIndex = 0;
+            ComboGrupo.Items.AddRange(new object[] { "Todos", "1", "2", "3" });
+            ComboGrupo.SelectedIndex = 0;
         }
 
         // Método: carga datos de deportes desde la BD y agrega opción "Todos"
@@ -76,7 +76,7 @@ namespace SportK
         // Método: carga y muestra datos en DataGridView según filtros seleccionados
         private void CargarDatos()
         {
-            string filtroGrupo = comboGrupo.SelectedItem?.ToString();
+            string filtroGrupo = ComboGrupo.SelectedItem?.ToString();
             int filtroDeporte = Convert.ToInt32(comboDeporte.SelectedValue ?? 0);
 
             string query = @"
@@ -189,7 +189,7 @@ namespace SportK
                 {
                     if (row.IsNewRow) continue;
 
-                    int id = Convert.ToInt32(row.Cells["id_alumno"].Value);
+                    int id = Convert.ToInt32(row.Cells["id_alumno"].Value); //obtener valores de cada celfa de la fila
                     string nombre = row.Cells["nombre"].Value.ToString();
                     string apellido = row.Cells["apellido_paterno"].Value.ToString();
                     int edad = Convert.ToInt32(row.Cells["edad"].Value);
@@ -198,8 +198,8 @@ namespace SportK
                     int idSede = Convert.ToInt32(row.Cells["id_sede"].Value);
                     int idDeporte = Convert.ToInt32(row.Cells["id_deporte"].Value);
 
-                    // Actualizo tabla Alumnos
-                    var updateAlumno = new MySqlCommand(@"
+                    // Actualiza tabla Alumnos
+                    var updateAlumno = new MySqlCommand(@" 
                         UPDATE Alumnos 
                         SET nombre = @nombre, apellido_paterno = @apellido, edad = @edad, nss = @nss, estatus = @estatus 
                         WHERE id_alumno = @id", conn);
@@ -212,8 +212,8 @@ namespace SportK
                     updateAlumno.Parameters.AddWithValue("@id", id);
                     updateAlumno.ExecuteNonQuery();
 
-                    // Actualizo tabla Registro
-                    var updateRegistro = new MySqlCommand(@"
+                    // Actualiza tabla Registro
+                    var updateRegistro = new MySqlCommand(@" 
                         UPDATE Registro 
                         SET id_deporte = @idDeporte, id_sede = @idSede 
                         WHERE id_alumno = @id", conn);
@@ -235,6 +235,21 @@ namespace SportK
         }
 
         private void VisualizarAlumnos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AlumnosTabla_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AlumnosTabla_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboGrupo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

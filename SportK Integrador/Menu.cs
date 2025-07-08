@@ -1,3 +1,5 @@
+using SportK_Integrador;
+
 namespace SportK
 {
     public partial class Menu_Ventana : Form
@@ -20,7 +22,8 @@ namespace SportK
 
         private void btn_Asistencia_Click(object sender, EventArgs e)
         {
-           
+           Asistencia ventanaasistencia = new Asistencia();
+            ventanaasistencia.ShowDialog(); // Muestra la ventana de asistencia como prioridad
         }
         private void btn_Pagos_Click(object sender, EventArgs e)
         {
