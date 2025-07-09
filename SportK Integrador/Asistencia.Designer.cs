@@ -102,7 +102,7 @@
             // ComboDeporte
             // 
             ComboDeporte.FormattingEnabled = true;
-            ComboDeporte.Location = new Point(351, 31);
+            ComboDeporte.Location = new Point(345, 31);
             ComboDeporte.Name = "ComboDeporte";
             ComboDeporte.Size = new Size(139, 28);
             ComboDeporte.TabIndex = 11;
