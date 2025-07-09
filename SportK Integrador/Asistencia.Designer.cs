@@ -32,10 +32,10 @@
             TextoDeporte = new Label();
             BtnEditar = new Button();
             BtnGuardar = new Button();
-            dataGridView1 = new DataGridView();
+            DataGridInfo = new DataGridView();
             ComboGrupo = new ComboBox();
             ComboDeporte = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DataGridInfo).BeginInit();
             SuspendLayout();
             // 
             // TextoGrupo
@@ -80,14 +80,15 @@
             BtnGuardar.UseVisualStyleBackColor = true;
             BtnGuardar.Click += Btn_Guardar_Click;
             // 
-            // dataGridView1
+            // DataGridInfo
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(41, 96);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(977, 517);
-            dataGridView1.TabIndex = 9;
+            DataGridInfo.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataGridInfo.Location = new Point(41, 96);
+            DataGridInfo.Name = "DataGridInfo";
+            DataGridInfo.RowHeadersWidth = 51;
+            DataGridInfo.Size = new Size(977, 517);
+            DataGridInfo.TabIndex = 9;
+            DataGridInfo.CellContentClick += Data_Gried_Info;
             // 
             // ComboGrupo
             // 
@@ -114,7 +115,7 @@
             ClientSize = new Size(1062, 673);
             Controls.Add(ComboDeporte);
             Controls.Add(ComboGrupo);
-            Controls.Add(dataGridView1);
+            Controls.Add(DataGridInfo);
             Controls.Add(BtnEditar);
             Controls.Add(BtnGuardar);
             Controls.Add(TextoDeporte);
@@ -122,7 +123,7 @@
             Name = "Asistencia";
             Text = "Asistencia";
             Load += Asistencia_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DataGridInfo).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -133,7 +134,7 @@
         private Label TextoDeporte;
         private Button BtnEditar;
         private Button BtnGuardar;
-        private DataGridView dataGridView1;
+        private DataGridView DataGridInfo;
         private ComboBox ComboGrupo;
         private ComboBox ComboDeporte;
     }

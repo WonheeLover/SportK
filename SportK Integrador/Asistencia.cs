@@ -13,12 +13,13 @@ namespace SportK_Integrador
 {
     public partial class Asistencia : Form
     {
+        MySqlConnection conex = new MySqlConnection("server=127.0.0.1;port=3306;user id=root;password=Saido_0209;database=sportk;");
+        MySqlDataAdapter adaptador;
         public Asistencia()
         {
             InitializeComponent();
+            CargarAsistencia();
         }
-
-        private string connectionString = "server=127.0.0.1;port=3306;user id=root;password=Saido_0209;database=sportk;";
 
         private void Asistencia_Load(object sender, EventArgs e)
         {
@@ -58,24 +59,22 @@ namespace SportK_Integrador
 
         private void CargarAsistencia()
         {
-            using var conn = new MySqlConnection(connectionString);
-            conn.Open();
-            var query = "SELECT * FROM Asistencia"; // Ajusta las columnas si es necesario
-            var cmd = new MySqlCommand(query, conn);
-            var dt = new DataTable();
-            dt.Load(cmd.ExecuteReader());
-            dataGridView1.DataSource = dt;
+            conex.Open();
+            DataTable dt = new DataTable();
+            adaptador = new MySqlDataAdapter("SELECT * FROM asistencias", conex);
+            adaptador.Fill(dt);
+            DataGridInfo.DataSource = dt;
+            conex.Close();
         }
 
         private void MostrarTablas()
         {
-            using var conn = new MySqlConnection(connectionString);
-            conn.Open();
-            var query = "SHOW TABLES IN sportk";
-            var cmd = new MySqlCommand(query, conn);
-            var dt = new DataTable();
-            dt.Load(cmd.ExecuteReader());
-            // Aquí puedes manejar los datos obtenidos, por ejemplo, mostrar en un control.
+
+        }
+
+        private void Data_Gried_Info(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
