@@ -106,7 +106,7 @@
             ComboDeporte.Name = "ComboDeporte";
             ComboDeporte.Size = new Size(139, 28);
             ComboDeporte.TabIndex = 11;
-            ComboDeporte.SelectedIndexChanged += Como_Deporte;
+            ComboDeporte.SelectedIndexChanged += Combo_Deporte;
             // 
             // Asistencia
             // 

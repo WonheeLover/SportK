@@ -19,6 +19,7 @@ namespace SportK_Integrador
         {
             InitializeComponent();
             CargarAsistencia();
+            CargarDeportes();
         }
 
         private void Asistencia_Load(object sender, EventArgs e)
@@ -42,9 +43,10 @@ namespace SportK_Integrador
 
         }
 
-        private void Como_Deporte(object sender, EventArgs e)
+        private void Combo_Deporte(object sender, EventArgs e)
         {
-
+            string deportesSeleccionado = ComboDeporte.SelectedItem.ToString();
+            FiltrarAlumnosPorDeporte(deportesSeleccionado);
         }
 
         private void Combo_Grupo(object sender, EventArgs e)
@@ -56,10 +58,17 @@ namespace SportK_Integrador
         {
 
         }
+        private void Data_Gried_Info(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
 
         private void CargarAsistencia()
         {
-            conex.Open();
+            if (conex.State != ConnectionState.Open)
+            {
+                conex.Open();
+            }
             DataTable dt = new DataTable();
             adaptador = new MySqlDataAdapter("SELECT * FROM asistencias", conex);
             adaptador.Fill(dt);
@@ -72,9 +81,59 @@ namespace SportK_Integrador
 
         }
 
-        private void Data_Gried_Info(object sender, DataGridViewCellEventArgs e)
+        private void CargarDeportes()
         {
+            string query = "SELECT DISTINCT deportes FROM alumnos";
 
+            MySqlCommand comando = new MySqlCommand(query, conex);
+
+            try
+            {
+                conex.Open();
+                MySqlDataReader reader = comando.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ComboDeporte.Items.Add(reader["deportes"].ToString());
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (conex.State == ConnectionState.Open)
+                    conex.Close();
+            }
         }
+        private void FiltrarAlumnosPorDeporte(string deportes)
+        {
+            string query = "SELECT id, nombre, apellido, edad, deportes FROM alumnos WHERE deportes = @deportes";
+
+            MySqlCommand comando = new MySqlCommand(query, conex);
+            comando.Parameters.AddWithValue("@deportes", deportes);
+
+            MySqlDataAdapter adaptador = new MySqlDataAdapter(comando);
+            DataTable tabla = new DataTable();
+
+            try
+            {
+                conex.Open();
+                adaptador.Fill(tabla);
+                DataGridInfo.DataSource = tabla;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (conex.State == ConnectionState.Open)
+                    conex.Close();
+            }
+        }
+
     }
 }
